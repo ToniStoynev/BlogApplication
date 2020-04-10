@@ -9,8 +9,8 @@ import { AngularMaterialModule } from '../angular-material.module';
 @NgModule({
   imports: [
     CommonModule,
-		ReactiveFormsModule,
-		AngularMaterialModule,
+    ReactiveFormsModule,
+    AngularMaterialModule,
     RouterModule
   ],
   exports: [],

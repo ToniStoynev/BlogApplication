@@ -5,15 +5,14 @@ import { CommonModule } from '@angular/common';
 import { AngularMaterialModule } from '../angular-material.module';
 import { ReactiveFormsModule } from '@angular/forms';
 import { ProfileRoutingModule } from './profile-routing.module';
-import { ChartModule } from 'angular-highcharts';
+
 
 @NgModule({
   imports: [
     CommonModule,
     AngularMaterialModule,
     ReactiveFormsModule,
-    ProfileRoutingModule,
-    ChartModule
+    ProfileRoutingModule
   ],
   exports: [],
   declarations: [ProfileComponent],
