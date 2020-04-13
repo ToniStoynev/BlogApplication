@@ -2,7 +2,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
@@ -11,22 +10,6 @@ import { ErrorInterceptor } from './error-interceptor';
 import { ErrorComponent } from './error/error.component';
 import { AngularMaterialModule } from './angular-material.module';
 import { PostsModule } from './posts/posts.module';
-import {
-  FacebookLoginProvider,
-  SocialLoginModule,
-  AuthServiceConfig
-} from 'angularx-social-login';
-
-const config = new AuthServiceConfig([
-  {
-    id: FacebookLoginProvider.PROVIDER_ID,
-    provider: new FacebookLoginProvider('2505104372930810')
-  }
-]);
-
-export function provideConfig() {
-  return config;
-}
 
 @NgModule({
   declarations: [
@@ -40,8 +23,7 @@ export function provideConfig() {
     BrowserAnimationsModule,
     HttpClientModule,
     AngularMaterialModule,
-    PostsModule,
-    SocialLoginModule
+    PostsModule
   ],
   providers: [
     {
@@ -53,10 +35,6 @@ export function provideConfig() {
       provide: HTTP_INTERCEPTORS,
       useClass: ErrorInterceptor,
       multi: true
-    },
-    {
-      provide: AuthServiceConfig,
-      useFactory: provideConfig
     }
   ],
   bootstrap: [AppComponent],

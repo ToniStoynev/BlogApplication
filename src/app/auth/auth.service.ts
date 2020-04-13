@@ -111,20 +111,6 @@ export class AuthService {
       });
   }
 
-  facebookLogin(email: string) {
-    const authData = { email };
-
-    this.http.post<{ token: string, expiresIn: number; userId: string }>(
-      BACKEND_URL + '/login/facebook',
-      authData
-    )
-    .subscribe(response => {
-      this.handleLogin(response, email);
-    }, error => {
-      this.authStatusListener.next(false);
-    });
-  }
-
   private handleLogin(response, email) {
     this.token = response.token;
     if (this.token) {

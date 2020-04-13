@@ -2,7 +2,7 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { AuthService as InternalAuthService } from '../auth/auth.service';
 import { Subscription } from 'rxjs';
 import { Router } from '@angular/router';
-import { AuthService } from 'angularx-social-login';
+
 
 @Component({
   selector: 'app-header',
@@ -15,7 +15,6 @@ export class HeaderComponent implements OnInit, OnDestroy {
 
   constructor(
     private authService: InternalAuthService,
-    private socialAuthService: AuthService,
     private router: Router
   ) { }
 
@@ -32,8 +31,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
 
   onLogout() {
     this.authService.logout();
-    this.socialAuthService.signOut().catch(err => {});
-  }
+}
 
   toProfile() {
     this.router.navigate(['/profile']);
